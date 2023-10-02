@@ -3,7 +3,7 @@ alert("Bienvenido a Colegio X ")
 let first = prompt("Ingresa nombre")
 let lastName = prompt("Ingresa apellido")
 alert("Bienvenido"+" " + first +" " + lastName + " a inventario de colegio X")
-alert("Comandos consola: function agregarProducto(),function nuevoStock(),function nuevoPrecio(),function nuevaObservacion()")
+alert("Comandos consola: function agregarProducto(),function nuevoStock(),function nuevoPrecio(),function nuevaObservacion(),function filtrarInventario()")
 const Inmueble = function(item,nombre,marca,stock,precio,lugar,observacion){
 this.item=item
 this.nombre=nombre
