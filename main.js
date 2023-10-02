@@ -1,4 +1,9 @@
 
+alert("Bienvenido a Colegio X ")
+let first = prompt("Ingresa nombre")
+let lastName = prompt("Ingresa apellido")
+alert("Bienvenido"+" " + first +" " + lastName + " a inventario de colegio X")
+alert("Comandos consola: function agregarProducto(),function nuevoStock(),function nuevoPrecio(),function nuevaObservacion()")
 const Inmueble = function(item,nombre,marca,stock,precio,lugar,observacion){
 this.item=item
 this.nombre=nombre
@@ -20,7 +25,7 @@ let bien7 = new Inmueble (6,"libro ciencias","editorial planeta",39,32000,"bibli
 
 let inventario = [bien1,bien2,bien3,bien4,bien5,bien6,bien7]
 
-function filtrarInventario(){
+function filtrarInventario(){ //funcion para filtrar
 let palabraClave = prompt("ingresa el inmueble que deseas buscar").trim().toUpperCase()
 let resultado = inventario.filter((producto)=> producto.nombre.toUpperCase().includes(palabraClave))
 
@@ -30,7 +35,7 @@ else{
 alert("no se encontro ninguna coincidencia con "+ palabraClave)}
 }
 
-function agregarProducto(){
+function agregarProducto(){//funcion para agregar nuevo producto
 let item = parseInt(prompt("ingresa cantidad"))
 let nombre = prompt ("ingresa nombre del inmueble").trim()
 let marca = prompt ("ingresa la marca del inmueble").trim()
@@ -48,7 +53,7 @@ console.table(inventario)
 }
 
 
-function agregarStock(){
+function nuevoStock(){//funcion para agregar nuevo stock
     console.log("Inventario Actual")
     console.table(inventario)
     let valor1 = parseInt(prompt("ingresa item "))
@@ -64,7 +69,7 @@ function agregarStock(){
     console.table(inventario)
 }
 
-function agregarPrecio(){
+function nuevoPrecio(){//funcion para agregar nuevo precio a item anterior
     console.log("Inventario Actual")
     console.table(inventario)
     let valor1 = parseInt(prompt("ingresa item "))
@@ -72,10 +77,24 @@ function agregarPrecio(){
     if(isNaN(valor1)|| isNaN(valor2)|| valor1 <= 0 ){
         alert("porfavor ingresa valores validos")
         return}
- inventario[valor1].precio = 0
+
     inventario[valor1].precio = valor2
     console.log(valor2)
     console.log("Nuevo precio")
     console.table(inventario)
 }
 
+function nuevaObservacion(){//funcion para agregar nueva informacion
+    console.log("Inventario Actual")
+    console.table(inventario)
+    let valor1 = parseInt(prompt("ingresa item "))
+    let valor2 = prompt("ingresa nueva Observacion ")
+    if(valor2 ==="" ){
+        alert("porfavor ingresa datos validos")
+        return}
+ 
+    inventario[valor1].observacion = valor2
+    console.log(valor2)
+    console.log("Nueva Observacion")
+    console.table(inventario)
+}
