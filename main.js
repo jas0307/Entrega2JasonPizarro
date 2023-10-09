@@ -95,7 +95,8 @@ let observacion = prompt ("ingresa observacion").trim()
 
 if(isNaN(precio)|| isNaN(stock)|| isNaN(item) || nombre ==="" || marca ===""|| lugar ===""|| observacion ===""){
 alert("porfavor ingresa valores validos")
-return}
+menu()
+}
 let producto = new Inmueble(item,nombre,marca,stock,precio,lugar,observacion);
 inventario.push(producto)
 
@@ -126,7 +127,8 @@ function nuevoStock(){//funcion para agregar nuevo stock
     let valor2 = parseInt(prompt("ingresa cantidad "))
     if(isNaN(valor1)|| isNaN(valor2)|| valor1 <= 0 ){
         alert("porfavor ingresa valores validos")
-        return}
+        menu()
+        }
     
     let stock2 = inventario[valor1].stock
     let suma = stock2 + valor2
@@ -164,12 +166,17 @@ function nuevoPrecio(){//funcion para agregar nuevo precio a item anterior
     let valor2 = parseInt(prompt("ingresa cantidad "))
     if(isNaN(valor1)|| isNaN(valor2)|| valor1 <= 0 || valor2 < 0){
         alert("porfavor ingresa valores validos")
-        return}
+        menu()
+        }
 
     inventario[valor1].precio = valor2
     console.log(valor2)
     console.log("Nuevo precio")
+    let nprod = "Nuevo precio: \n";
+    nprod += ` Item: ${inventario[valor1].item}\n Nombre: ${inventario[valor1].nombre}\n Marca: ${inventario[valor1].marca}\n Stock: ${inventario[valor1].stock}\n Precio: ${inventario[valor1].precio}\n Lugar: ${inventario[valor1].lugar}\n Observacion: ${inventario[valor1].observacion}\n`;
+     alert(nprod);
     console.table(inventario)
+    menu()
 }
 
 function nuevaObservacion(){//funcion para agregar nueva informacion
@@ -191,11 +198,16 @@ function nuevaObservacion(){//funcion para agregar nueva informacion
     let valor2 = prompt("ingresa nueva Observacion ")
     if(valor2 ==="" ){
         alert("porfavor ingresa datos validos")
-        return}
+        menu()
+        }
  
     inventario[valor1].observacion = valor2
     console.log(valor2)
     console.log("Nueva Observacion")
+    let nprod = "Nueva Observacion: \n";
+    nprod += ` Item: ${inventario[valor1].item}\n Nombre: ${inventario[valor1].nombre}\n Marca: ${inventario[valor1].marca}\n Stock: ${inventario[valor1].stock}\n Precio: ${inventario[valor1].precio}\n Lugar: ${inventario[valor1].lugar}\n Observacion: ${inventario[valor1].observacion}\n`;
+     alert(nprod);
     console.table(inventario)
+    menu()
 }
 menu()
